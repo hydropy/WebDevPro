@@ -18,13 +18,13 @@ const HowItWorks = () => {
     },
     {
       number: "02",
-      title: "Make Crypto Payment",
-      description: "Send USDT or BTC to our secure wallet address to begin the development process.",
-      icon: "fas fa-coins",
+      title: "Choose Payment Method",
+      description: "Select from our flexible payment options that work best for you to begin development.",
+      icon: "fas fa-credit-card",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
       link: {
-        text: "Secure USDT/BTC transactions",
+        text: "Multiple payment options",
         url: null
       },
       delay: 0.1

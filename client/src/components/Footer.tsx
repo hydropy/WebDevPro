@@ -55,10 +55,12 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="text-gray-400">
-                  <span>Crypto Payments:</span>
+                  <span>Payment Options:</span>
                   <div className="flex space-x-2 mt-2">
+                    <i className="fas fa-credit-card text-[#4A69BD]"></i>
+                    <i className="fab fa-paypal text-[#003087]"></i>
                     <i className="fab fa-bitcoin text-[#F7931A]"></i>
-                    <i className="fas fa-dollar-sign text-[#26A17B]"></i>
+                    <i className="fas fa-university text-[#20BF6B]"></i>
                   </div>
                 </li>
               </ul>
@@ -68,8 +70,8 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">© {new Date().getFullYear()} WebDevPro. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</a>
+            <a href="/privacy-policy" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
