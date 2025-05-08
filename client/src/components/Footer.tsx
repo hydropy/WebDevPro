@@ -1,10 +1,12 @@
+import Legal from './Legal';
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-white py-12">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <a href="#" className="flex items-center mb-6">
+            <a href="/" className="flex items-center mb-6">
               <span className="text-2xl font-bold font-heading">
                 WebDev<span className="text-secondary">Pro</span>
               </span>
@@ -13,16 +15,16 @@ const Footer = () => {
               Professional web development with ultra-fast delivery. Get your website today, not next week.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://twitter.com/webdevpro" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://facebook.com/webdevpro" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-facebook"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://instagram.com/webdevpro" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/webdevpro" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-github"></i>
               </a>
             </div>
@@ -32,7 +34,7 @@ const Footer = () => {
               <h3 className="font-bold text-lg mb-4 font-heading">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a>
+                  <a href="/" className="text-gray-400 hover:text-white transition-colors">Home</a>
                 </li>
                 <li>
                   <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">How It Works</a>
@@ -69,10 +71,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">© {new Date().getFullYear()} WebDevPro. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="/privacy-policy" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="/terms-of-service" className="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</a>
-          </div>
+          <Legal />
         </div>
       </div>
     </footer>
