@@ -64,18 +64,18 @@ const PaymentSection = () => {
     },
     {
       step: 2,
-      title: "Payment Method",
-      description: "Choose your preferred payment method from our flexible options"
+      title: "Development",
+      description: "Our team starts working on your project immediately after confirming requirements"
     },
     {
       step: 3,
-      title: "Secure Payment",
-      description: "Make payment through our secure system with confirmation"
+      title: "Demo and Review",
+      description: "We provide a demo link so you can review and request any adjustments"
     },
     {
       step: 4,
-      title: "Development Begins",
-      description: "Our team starts working on your project immediately after confirmation"
+      title: "Payment & Hosting",
+      description: "Only after your approval, payment is made and we deploy to your domain or help you get one"
     }
   ];
 
@@ -101,9 +101,16 @@ const PaymentSection = () => {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">Multiple Payment Options</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
             We offer a variety of payment methods to suit your needs and preferences, making the process seamless and convenient.
           </p>
+          
+          <div className="mx-auto max-w-3xl bg-gradient-to-r from-accent/10 to-secondary/10 p-4 rounded-xl border border-secondary/20 mb-4">
+            <p className="text-lg font-medium flex items-center justify-center gap-2">
+              <i className="fas fa-check-circle text-accent"></i>
+              <span>You pay only after reviewing and approving the demo website</span>
+            </p>
+          </div>
         </motion.div>
         
         {/* Main content */}
@@ -232,7 +239,7 @@ const PaymentSection = () => {
                 {/* CTA button */}
                 <div className="mt-8 text-center">
                   <motion.a
-                    href="https://wa.me/919347455431?text=Hi,%20I'm%20interested%20in%20your%20website%20development%20services.%20Could%20you%20please%20provide%20details%20about%20your%20payment%20options?"
+                    href="https://wa.me/919347455431?text=Hi,%20I'm%20interested%20in%20your%20website%20development%20services.%20I%20understand%20you%20provide%20a%20demo%20first%20and%20only%20collect%20payment%20after%20approval.%20Could%20you%20please%20share%20more%20details%20about%20this%20process?"
                     className="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-xl font-medium transition-all hover:shadow-lg hover:shadow-secondary/20"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}

@@ -18,26 +18,26 @@ const HowItWorks = () => {
     },
     {
       number: "02",
-      title: "Choose Payment Method",
-      description: "Select from our flexible payment options that work best for you to begin development.",
-      icon: "fas fa-credit-card",
+      title: "Review Demo Website",
+      description: "We'll quickly develop a demo for you to review before any payment. Request any changes as needed.",
+      icon: "fas fa-desktop",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
       link: {
-        text: "Multiple payment options",
+        text: "Same-day or 3-hour delivery",
         url: null
       },
       delay: 0.1
     },
     {
       number: "03",
-      title: "Receive Your Website",
-      description: "Get your website delivered within hours. Review, request tweaks, and go live.",
+      title: "Pay & Go Live",
+      description: "Only after your approval, payment is made and we deploy to your domain or help you get one.",
       icon: "fas fa-rocket",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
       link: {
-        text: "Same-day or 3-hour delivery",
+        text: "Multiple payment options",
         url: null
       },
       delay: 0.2
@@ -88,8 +88,8 @@ const HowItWorks = () => {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">How It Works</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Three simple steps to get your premium website up and running in record time.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Three simple steps to get your premium website up and running in record time. We build and demonstrate first, you pay only after your approval.
           </p>
         </motion.div>
         
