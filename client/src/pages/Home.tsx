@@ -5,7 +5,7 @@ import FeaturesBanner from '@/components/FeaturesBanner';
 import HowItWorks from '@/components/HowItWorks';
 import Features from '@/components/Features';
 import CtaSection from '@/components/CtaSection';
-import CryptoPayment from '@/components/CryptoPayment';
+import PaymentSection from '@/components/PaymentSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -53,7 +53,7 @@ const Home = () => {
         <HowItWorks />
         <Features />
         <Testimonials />
-        <CryptoPayment />
+        <PaymentSection />
         <ProcessSection />
         <CtaSection />
         <ContactSection />

@@ -1,46 +1,58 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
-const CryptoPayment = () => {
-  const cryptoCurrencies = [
+const PaymentSection = () => {
+  const paymentMethods = [
+    {
+      icon: "fas fa-credit-card",
+      color: "#4A69BD",
+      name: "Credit/Debit Cards",
+      description: "Secure payment with major credit and debit cards including Visa, Mastercard, and Amex."
+    },
+    {
+      icon: "fab fa-paypal",
+      color: "#003087",
+      name: "PayPal",
+      description: "Fast and secure payments with buyer protection through your PayPal account."
+    },
     {
       icon: "fab fa-bitcoin",
       color: "#F7931A",
-      name: "Bitcoin (BTC)",
-      description: "The original cryptocurrency, perfect for secure international payments."
+      name: "Cryptocurrencies",
+      description: "Bitcoin (BTC), Ethereum (ETH), and other major cryptocurrencies accepted."
     },
     {
-      icon: "fas fa-dollar-sign",
-      color: "#26A17B",
-      name: "Tether (USDT)",
-      description: "Stable, dollar-pegged token for predictable payment values."
+      icon: "fas fa-university",
+      color: "#20BF6B",
+      name: "Bank Transfer",
+      description: "Direct bank transfers available for both domestic and international clients."
     }
   ];
 
   const benefits = [
     {
       id: 1,
-      icon: "fas fa-bolt",
-      title: "Instant Transactions",
-      description: "No waiting for bank processing, transactions confirmed in minutes."
+      icon: "fas fa-lock",
+      title: "Secure Transactions",
+      description: "All payment methods use industry-standard security protocols and encryption."
     },
     {
       id: 2,
-      icon: "fas fa-chart-line",
-      title: "Lower Fees",
-      description: "Significantly reduced fees compared to traditional payment methods."
+      icon: "fas fa-globe",
+      title: "Global Support",
+      description: "Payment options available for clients from around the world."
     },
     {
       id: 3,
-      icon: "fas fa-globe",
-      title: "Global Payments",
-      description: "Send payments worldwide without currency conversion hassles."
+      icon: "fas fa-bolt",
+      title: "Fast Processing",
+      description: "Quick payment confirmation to start your project immediately."
     },
     {
       id: 4,
       icon: "fas fa-shield-alt",
-      title: "Enhanced Security",
-      description: "Secure blockchain technology ensures transaction safety."
+      title: "Buyer Protection",
+      description: "Many of our payment methods include built-in buyer protection."
     }
   ];
 
@@ -48,45 +60,24 @@ const CryptoPayment = () => {
     {
       step: 1,
       title: "Project Requirements",
-      description: "Discuss your project requirements and get a quote"
+      description: "Discuss your project requirements and get a detailed quote"
     },
     {
       step: 2,
-      title: "Wallet Address",
-      description: "Receive our wallet address for BTC or USDT payment"
+      title: "Payment Method",
+      description: "Choose your preferred payment method from our flexible options"
     },
     {
       step: 3,
-      title: "Payment",
-      description: "Send payment and share transaction ID for verification"
+      title: "Secure Payment",
+      description: "Make payment through our secure system with confirmation"
     },
     {
       step: 4,
-      title: "Development",
-      description: "Development begins immediately after confirmation"
+      title: "Development Begins",
+      description: "Our team starts working on your project immediately after confirmation"
     }
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6
-      }
-    }
-  };
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -104,14 +95,14 @@ const CryptoPayment = () => {
           <div className="inline-block">
             <div className="flex items-center justify-center mb-4">
               <span className="h-1 w-10 bg-secondary rounded-full mr-2"></span>
-              <span className="text-secondary font-semibold tracking-wider">SECURE PAYMENTS</span>
+              <span className="text-secondary font-semibold tracking-wider">FLEXIBLE PAYMENTS</span>
               <span className="h-1 w-10 bg-secondary rounded-full ml-2"></span>
             </div>
           </div>
           
-          <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">Crypto Payments Only</h2>
+          <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">Multiple Payment Options</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We exclusively accept cryptocurrency payments for fast, secure, and global transactions.
+            We offer a variety of payment methods to suit your needs and preferences, making the process seamless and convenient.
           </p>
         </motion.div>
         
@@ -130,35 +121,35 @@ const CryptoPayment = () => {
                 <div className="absolute -right-20 -bottom-20 w-40 h-40 bg-gradient-to-br opacity-5 from-blue-500 to-cyan-400 rounded-full blur-xl"></div>
                 <div className="absolute -left-10 -top-10 w-28 h-28 bg-gradient-to-br opacity-5 from-yellow-500 to-orange-400 rounded-full blur-xl"></div>
                 
-                <h3 className="text-2xl font-bold font-heading mb-6 premium-gradient-text inline-block">Accepted Cryptocurrencies</h3>
+                <h3 className="text-2xl font-bold font-heading mb-6 premium-gradient-text inline-block">Available Payment Methods</h3>
                 
-                {/* Crypto options */}
-                <div className="space-y-8 mb-8">
-                  {cryptoCurrencies.map((crypto, index) => (
+                {/* Payment options */}
+                <div className="space-y-6 mb-8">
+                  {paymentMethods.map((method, index) => (
                     <div key={index} className="flex items-start group bg-gray-50 p-5 rounded-xl transition-all hover:shadow-md">
                       <div 
                         className="w-14 h-14 rounded-xl flex items-center justify-center mr-4"
                         style={{ 
-                          background: `linear-gradient(135deg, ${crypto.color}20, ${crypto.color}10)`,
-                          color: crypto.color
+                          background: `linear-gradient(135deg, ${method.color}20, ${method.color}10)`,
+                          color: method.color
                         }}
                       >
-                        <i className={`${crypto.icon} text-2xl`}></i>
+                        <i className={`${method.icon} text-2xl`}></i>
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold font-heading group-hover:text-secondary transition-colors">{crypto.name}</h4>
-                        <p className="text-gray-600 mt-1">{crypto.description}</p>
+                        <h4 className="text-xl font-bold font-heading group-hover:text-secondary transition-colors">{method.name}</h4>
+                        <p className="text-gray-600 mt-1">{method.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 
-                {/* Why crypto section */}
+                {/* Benefits section */}
                 <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white p-6 rounded-xl relative overflow-hidden">
                   <div className="absolute inset-0 dots-pattern opacity-10"></div>
                   <h4 className="font-bold text-xl mb-5 flex items-center">
-                    <i className="fas fa-question-circle mr-2"></i>
-                    Why Choose Crypto?
+                    <i className="fas fa-star mr-2"></i>
+                    Payment Benefits
                   </h4>
                   <div className="grid grid-cols-2 gap-5">
                     {benefits.map((benefit) => (
@@ -194,8 +185,8 @@ const CryptoPayment = () => {
                 transition={{ duration: 0.3 }}
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1621504450181-5d356f61d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600" 
-                  alt="Cryptocurrency payment concept" 
+                  src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=550&q=80" 
+                  alt="Secure online payment concept" 
                   className="w-full h-auto object-cover"
                   loading="lazy"
                 />
@@ -203,8 +194,8 @@ const CryptoPayment = () => {
                 {/* Floating badge */}
                 <div className="absolute -bottom-6 right-8 bg-secondary text-white px-5 py-3 rounded-lg shadow-lg">
                   <div className="flex items-center gap-2">
-                    <i className="fas fa-lock"></i>
-                    <span className="font-medium">Secure Transactions</span>
+                    <i className="fas fa-shield-alt"></i>
+                    <span className="font-medium">Secure & Flexible</span>
                   </div>
                 </div>
               </motion.div>
@@ -247,7 +238,7 @@ const CryptoPayment = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <i className="fab fa-whatsapp text-lg"></i>
-                    <span>Get Started with Crypto Payment</span>
+                    <span>Discuss Payment Options</span>
                   </motion.a>
                 </div>
               </CardContent>
@@ -259,4 +250,4 @@ const CryptoPayment = () => {
   );
 };
 
-export default CryptoPayment;
+export default PaymentSection;

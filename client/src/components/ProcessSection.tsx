@@ -20,7 +20,7 @@ const ProcessSection = () => {
     {
       step: 3,
       title: "Payment",
-      description: "If you're happy with the demo, we'll discuss crypto payment options that work best for you.",
+      description: "If you're happy with the demo, we'll discuss payment options that work best for you.",
       icon: "fas fa-coins",
       color: "bg-yellow-500/10 text-yellow-500"
     },
