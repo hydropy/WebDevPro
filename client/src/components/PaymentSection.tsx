@@ -232,10 +232,12 @@ const PaymentSection = () => {
                 {/* CTA button */}
                 <div className="mt-8 text-center">
                   <motion.a
-                    href="https://wa.me/919347455431"
+                    href="https://wa.me/919347455431?text=Hi,%20I'm%20interested%20in%20your%20website%20development%20services.%20Could%20you%20please%20provide%20details%20about%20your%20payment%20options?"
                     className="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-xl font-medium transition-all hover:shadow-lg hover:shadow-secondary/20"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <i className="fab fa-whatsapp text-lg"></i>
                     <span>Discuss Payment Options</span>
