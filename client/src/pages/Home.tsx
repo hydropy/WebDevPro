@@ -9,6 +9,7 @@ import CryptoPayment from '@/components/CryptoPayment';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import Testimonials from '@/components/Testimonials';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Home = () => {
@@ -50,8 +51,9 @@ const Home = () => {
         <FeaturesBanner />
         <HowItWorks />
         <Features />
-        <CtaSection />
+        <Testimonials />
         <CryptoPayment />
+        <CtaSection />
         <ContactSection />
       </main>
       <Footer />
