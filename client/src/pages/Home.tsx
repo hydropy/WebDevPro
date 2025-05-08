@@ -10,6 +10,7 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Testimonials from '@/components/Testimonials';
+import ProcessSection from '@/components/ProcessSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Home = () => {
@@ -53,6 +54,7 @@ const Home = () => {
         <Features />
         <Testimonials />
         <CryptoPayment />
+        <ProcessSection />
         <CtaSection />
         <ContactSection />
       </main>
