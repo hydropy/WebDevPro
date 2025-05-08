@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'wouter';
 import { 
   Card, 
   CardContent 
@@ -35,8 +36,10 @@ const formSchema = z.object({
   projectType: z.string().min(1, { message: "Please select a project type." }),
   timeline: z.string().min(1, { message: "Please select a timeline." }),
   message: z.string().min(10, { message: "Please provide more details about your project." }),
-  cryptoPayment: z.boolean().refine(val => val === true, {
-    message: "You must agree to crypto payment terms."
+  existingWebsite: z.boolean().optional(),
+  existingUrl: z.string().optional(),
+  agreeToTerms: z.boolean().refine(val => val === true, {
+    message: "You must agree to the terms and conditions."
   })
 });
 
@@ -54,7 +57,9 @@ const ContactSection = () => {
       projectType: "",
       timeline: "",
       message: "",
-      cryptoPayment: false
+      existingWebsite: false,
+      existingUrl: "",
+      agreeToTerms: false
     }
   });
   
@@ -80,6 +85,35 @@ const ContactSection = () => {
   });
   
   const onSubmit = (data: FormData) => {
+    // Format the message for WhatsApp
+    const projectTypeText = data.projectType === 'business' ? 'Business Website' :
+                           data.projectType === 'ecommerce' ? 'E-Commerce Website' :
+                           data.projectType === 'portfolio' ? 'Portfolio Website' :
+                           data.projectType === 'landing' ? 'Landing Page' :
+                           data.projectType === 'blog' ? 'Blog Website' : 'Other';
+    
+    const timelineText = data.timeline === '3h' ? '3 Hours (Express)' : '24 Hours (Standard)';
+    
+    let message = `*New Website Request*\n\n`;
+    message += `*Name:* ${data.name}\n`;
+    message += `*Email:* ${data.email}\n`;
+    message += `*Project:* ${projectTypeText}\n`;
+    message += `*Timeline:* ${timelineText}\n\n`;
+    message += `*Project Details:*\n${data.message}\n\n`;
+    
+    if (data.existingWebsite && data.existingUrl) {
+      message += `*Existing Website:* ${data.existingUrl}\n\n`;
+    }
+    
+    message += `I've agreed to the terms and conditions on your website.`;
+    
+    // Encode the message for a URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Redirect to WhatsApp
+    window.open(`https://wa.me/919347455431?text=${encodedMessage}`, '_blank');
+    
+    // Also store in backend for backup
     mutation.mutate(data);
   };
 
@@ -135,7 +169,7 @@ const ContactSection = () => {
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check-circle text-accent mt-1 mr-3"></i>
-                    <span className="text-gray-600">Simple crypto payment process - no complicated contracts</span>
+                    <span className="text-gray-600">Multiple flexible payment options - no complicated contracts</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check-circle text-accent mt-1 mr-3"></i>
@@ -266,7 +300,7 @@ const ContactSection = () => {
                       
                       <FormField
                         control={form.control}
-                        name="cryptoPayment"
+                        name="existingWebsite"
                         render={({ field }) => (
                           <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                             <FormControl>
@@ -277,7 +311,44 @@ const ContactSection = () => {
                             </FormControl>
                             <div className="space-y-1 leading-none">
                               <FormLabel>
-                                I understand that payment is accepted only in USDT or BTC
+                                I already have a website that needs redesign/updates
+                              </FormLabel>
+                              <FormMessage />
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                      
+                      {form.watch("existingWebsite") && (
+                        <FormField
+                          control={form.control}
+                          name="existingUrl"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Existing Website URL</FormLabel>
+                              <FormControl>
+                                <Input placeholder="https://example.com" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
+                      
+                      <FormField
+                        control={form.control}
+                        name="agreeToTerms"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel>
+                                I agree to the <a href="/terms-of-service" className="text-secondary hover:underline">Terms of Service</a> and <a href="/privacy-policy" className="text-secondary hover:underline">Privacy Policy</a>
                               </FormLabel>
                               <FormMessage />
                             </div>
@@ -287,10 +358,11 @@ const ContactSection = () => {
                       
                       <Button 
                         type="submit" 
-                        className="w-full bg-secondary hover:bg-secondary/90 text-white"
+                        className="w-full bg-secondary hover:bg-secondary/90 text-white flex items-center justify-center gap-2"
                         disabled={mutation.isPending}
                       >
-                        {mutation.isPending ? "Submitting..." : "Submit Request"}
+                        <i className="fab fa-whatsapp text-xl"></i>
+                        {mutation.isPending ? "Connecting..." : "Continue on WhatsApp"}
                       </Button>
                     </form>
                   </Form>
