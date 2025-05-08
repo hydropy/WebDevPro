@@ -84,4 +84,67 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
+  
+  /* 3D effects and premium styling */
+  .glass-card {
+    @apply bg-white bg-opacity-70 backdrop-blur-md border border-white border-opacity-30 shadow-xl;
+  }
+  
+  .premium-gradient {
+    background: linear-gradient(120deg, #0984E3 0%, #00B894 100%);
+  }
+  
+  .premium-gradient-text {
+    background: linear-gradient(120deg, #0984E3 0%, #00B894 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 30px rgba(9, 132, 227, 0.15);
+  }
+  
+  .morphic-shadow {
+    box-shadow: 
+      -5px -5px 15px rgba(255, 255, 255, 0.5),
+      5px 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(9, 132, 227, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(9, 132, 227, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .dots-pattern {
+    background-image: radial-gradient(rgba(9, 132, 227, 0.1) 1px, transparent 1px);
+    background-size: 15px 15px;
+  }
+  
+  /* 3D card effect */
+  .card-3d {
+    @apply transition-all duration-300 ease-out transform;
+    transform-style: preserve-3d;
+  }
+  
+  .card-3d:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  }
+  
+  .card-3d::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl;
+    transform: translateZ(-1px);
+    background: linear-gradient(120deg, rgba(9, 132, 227, 0.2), rgba(0, 184, 148, 0.2));
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .card-3d:hover::before {
+    opacity: 1;
+  }
 }

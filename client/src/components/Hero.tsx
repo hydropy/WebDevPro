@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import HeroScene from "./HeroScene";
 import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
@@ -52,8 +51,8 @@ const Hero = () => {
 
   return (
     <section className="relative pt-36 pb-24 px-6 overflow-hidden">
-      {/* 3D animated background */}
-      <HeroScene />
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-white -z-10"></div>
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
